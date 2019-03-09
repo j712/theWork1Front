@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (4.8.0)
+  - Eureka (4.3.0)
+  - HNToaster (1.0.0)
+  - JTAppleCalendar (7.1.6)
+  - ReachabilitySwift (4.3.0)
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (4.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - Eureka
+  - HNToaster (~> 1.0)
+  - JTAppleCalendar (~> 7.0)
+  - ReachabilitySwift
+  - RealmSwift
+  - SVProgressHUD
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Eureka
+    - HNToaster
+    - JTAppleCalendar
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - SVProgressHUD
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  HNToaster: fe379384ffe698f05e6535525362bc45b8be6f19
+  JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+
+PODFILE CHECKSUM: 67a616dcddf890cdd5dc84b94fd847e4f340bb92
+
+COCOAPODS: 1.5.3
