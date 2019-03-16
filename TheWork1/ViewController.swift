@@ -187,11 +187,6 @@ extension ViewController{
         alertClass.datecomponentsArray(date: value2, number: "1")
         alertClass.datecomponentsArray(date: value1, number: "2")
         alertClass.datecomponentsArray(date: strYmd, number: "3")
-        
-//        let alertController = UIAlertController(title:"登録完了！",message: "",preferredStyle:UIAlertController.Style.alert)
-//
-//        alertController.addAction(UIAlertAction(title:"OK",style:UIAlertAction.Style.default,handler:nil))
-//        self.present(alertController,animated:true,completion:nil)
     }
     
     func getServerEvents() -> [Date:[String]] {
@@ -202,8 +197,6 @@ extension ViewController{
         for data in realmResults {
             result.updateValue([data.plan,data.limit], forKey: formatter.date(from: data.date)!)
         }
-        
-        
         return result
     }
     //選択された日付に対する情報の設定
@@ -290,7 +283,6 @@ extension ViewController{
     
     func weekInsert(){
         let cal = Calendar.current
-        //guard let nowMonth = cal.date(from: DateComponents(year: 2019, month: 2, day: 1)) else { return }
         var Day = cal.dateComponents([.year, .month, .day, .weekday], from: Date())
         //年月をformatする
         let year = yearLabel.title!
@@ -314,9 +306,6 @@ extension ViewController{
         showAndLoad()
         let firstDay = Calendar.current.date(from: Day)!
         let str = formatter.string(from: firstDay)
-   
-        print("firstDay:",str)
-        print("firstDayWeek:" + firstDay.weekday,firstDay)
     }
     
     @objc func doneClicked1(){
@@ -334,9 +323,6 @@ extension ViewController{
         let lastDate = Calendar.current.date(from: components)!
         formatter.dateFormat = "yyyy MM dd"
         let str = formatter.string(from: lastDate)
-        print("date",date)
-        print("str:",str)
-        print("count:",Int(str.suffix(2))!)
         return Int(str.suffix(2))!
     }
 }
@@ -371,10 +357,21 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension ViewController: JTAppleCalendarViewDataSource,JTAppleCalendarViewDelegate{
     //カレンダーの範囲を選択
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
+        
+        formatter.dateFormat = "yyyy MM"
+        let now = formatter.string(from: Date())
         formatter.dateFormat = "yyyy MM dd"
-        let startDate = formatter.date(from: "2019 03 01")!
-        let endDate = formatter.date(from: "2020 03 31")!
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
+        
+        //現在月の初日
+        let startDate = formatter.date(from: now + " 01")!
+        let calendar = Calendar.current
+        
+        // １年後の月末まで
+        let add = DateComponents(day: -1)
+        var endDate = calendar.date(byAdding:  .year,value: 1, to: startDate)
+        endDate = calendar.date(byAdding: add, to: endDate!)
+        
+        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!)
         return parameters
     }
     //選択されている年月の表示

@@ -94,7 +94,8 @@ class uploadViewController: FormViewController{
         if !dictFlag {
             self.showAlert(title: self.selectedPicker + "の予定がありません。", message: "予定が登録されている年月のみ登録できます。" ,flag: false)
         }else{
-            let urlString = "http://ec2-18-221-89-226.us-east-2.compute.amazonaws.com/c.php"
+           
+            let urlString = "サーバName等/upload.php"
             let request = NSMutableURLRequest(url: URL(string: urlString)!)
             request.httpMethod = "POST"
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
